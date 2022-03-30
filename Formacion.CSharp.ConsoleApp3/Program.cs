@@ -1,213 +1,133 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace Formacion.CSharp.ConsoleApp4
+namespace Formacion.CSharp.ConsoleApp3
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            while (true)
+            try
             {
                 Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("".PadRight(56, '*'));
-                Console.WriteLine("*  DEMO Y EJERCICIOS".PadRight(55) + "*");
-                Console.WriteLine("".PadRight(56, '*'));
-                Console.WriteLine("*".PadRight(55) + "*");
-                Console.WriteLine("*  1. Uso de ArrayList".PadRight(55) + "*");
-                Console.WriteLine("*  2. Uso de Hashtable".PadRight(55) + "*");
-                Console.WriteLine("*  3. Uso de List".PadRight(55) + "*");
-                Console.WriteLine("*  4. Uso de Dictionary".PadRight(55) + "*");
-                Console.WriteLine("*  9. Salir".PadRight(55) + "*");
-                Console.WriteLine("*".PadRight(55) + "*");
-                Console.WriteLine("".PadRight(56, '*'));
+                Calculadora calculadora = new Calculadora(65, 0);
 
-                Console.WriteLine(Environment.NewLine);
-                Console.Write("   Opción: ");
+                calculadora.Suma();
+                Console.WriteLine($"Suma: {calculadora.Resultado}");
 
-                Console.ForegroundColor = ConsoleColor.Cyan;
+                calculadora.Resta();
+                Console.WriteLine($"Resta: {calculadora.Resultado}");
 
-                int.TryParse(Console.ReadLine(), out int opcion);
-                switch (opcion)
-                {
-                    case 1:
-                        ArrayList();
-                        break;
-                    case 2:
-                        HashTable();
-                        break;
-                    case 3:
-                        List();
-                        break;
-                    case 4:
-                        Dictionary();
-                        break;
-                    case 9:
-                        return;
-                    default:
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine(Environment.NewLine + $"La opción {opcion} no es valida.");
-                        break;
-                }
+                calculadora.Multiplicacion();
+                Console.WriteLine($"Multiplicación: {calculadora.Resultado}");
 
-                Console.WriteLine(Environment.NewLine);
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("Pulsa una tecla para continuar...");
-                Console.ReadKey();
+                //Se produce una excepción al intentar divivir un 65 entre 0
+                calculadora.Division();
+                Console.WriteLine($"División: {calculadora.Resultado}");
             }
-        }
-
-        /// <summary>
-        /// Uso de la lista, ArrayList
-        /// </summary>
-        static void ArrayList()
-        {
-            //Instanciar
-            var array = new ArrayList();
-
-            //Eliminar todos los elementos
-            array.Clear();
-
-            //Añadir elementos
-            array.Add("azul");
-            array.Add("rojo");
-            array.Add("amarillo");
-            array.Add("verde");
-            array.Add(96);
-
-            //Añadir todos los elementos de otra colección
-            var colores = new string[] { "marrón", "naranja", "violeta" };
-            array.AddRange(colores);
-
-            //Número de elementos
-            Console.WriteLine($"Número de items: {array.Count}");
-
-            //Recorrer colección
-            foreach (var item in array)
+            catch (Exception e)
             {
-                Console.WriteLine("Item: {0}", item);
+                Console.WriteLine($"Main: {e.Message}");
             }
-            Console.WriteLine(Environment.NewLine);
-
-            for (var i = 0; i < array.Count; i++)
-            {
-                Console.WriteLine("Item: {0}", array[i]);
-            }
-
-            //Eliminar un elemento
-            array.Remove("verde");
-            array.RemoveAt(4);
-
-            //Eliminar elementos
-            array.RemoveRange(2, 2);
-
-        }
-
-        /// <summary>
-        /// Uso del diccionario, Hashtable
-        /// </summary>
-        static void HashTable()
-        {
-            //Instanciar
-            var dicc = new Hashtable();
-
-            //Eliminar todos los elementos
-            dicc.Clear();
-
-            //Añadir elementos
-            dicc.Add("ANATR", "Ana Trujillo");
-            dicc.Add("ANTON", "Antonio Sanz");
-            dicc.Add("CARSA", "Carlos Sánchez");
-
-            //Número de elementos
-            Console.WriteLine("Número de elementos {0}", dicc.Count);
-
-            //Recorrer
-            foreach (var clave in dicc.Keys)
-            {
-                Console.WriteLine($"{clave} -> {dicc[clave]}");
-            }
-
-            //Eliminar un elemnto
-            dicc.Remove("ANTON");
-        }
-
-        /// <summary>
-        /// Uso de la lista, List
-        /// </summary>
-        static void List()
-        {
-            //Instanciar
-            var lista = new List<string>();
-
-            //Eliminar todos los elementos
-            lista.Clear();
-
-            //Añadir elementos
-            lista.Add("azul");
-            lista.Add("rojo");
-            lista.Add("verde");
-            lista.Add("amarillo");
-            lista.Add("rosa");
-            lista.Add("blanco");
-
-            //Número de elementos
-            Console.WriteLine("Número de elementos {0}", lista.Count);
-
-            //Recorrer
-            foreach (string item in lista)
-            {
-                Console.WriteLine(item);
-            }
-
-            for (var i = 0; i < lista.Count; i++)
-            {
-                Console.WriteLine("Item {0}: {1}", i, lista[i]);
-            }
-
-            //Eliminar un elemento
-            lista.Remove("azul");
-            lista.RemoveAt(4);
-        }
-
-        /// <summary>
-        /// Uso del diccionario, Dictionary
-        /// </summary>
-        static void Dictionary()
-        {
-            //Instanciar
-            var dicc = new Dictionary<int, string>();
-
-            //Eliminar todos los elementos
-            dicc.Clear();
-
-            //Añadir elementos
-            dicc.Add(1, "azul");
-            dicc.Add(2, "verde");
-            dicc.Add(99, "rojo");
-            dicc.Add(11, "amarillo");
-            dicc.Add(90, "rosa");
-            dicc.Add(410, "blanco");
-
-            //Número de elementos
-            Console.WriteLine("Número de elementos {0}", dicc.Count);
-
-            //Recorrer
-            foreach (var clave in dicc.Keys)
-            {
-                Console.WriteLine("Clave: {0} - Valor: {1}", clave, dicc[clave]);
-            }
-
-            for (var i = 0; i < dicc.Keys.Count; i++)
-            {
-                Console.WriteLine("Clave: {0} - Valor: {1}", dicc.Keys.ToList()[i], dicc[dicc.Keys.ToList()[i]]);
-            }
-
-            //Eliminar un elemento
-            dicc.Remove(90);
         }
     }
+
+    /// <summary>
+    /// Objeto Calculadora
+    /// </summary>
+    public class Calculadora
+    {
+        public int Numero1 { get; set; }
+        public int Numero2 { get; set; }
+        public int Resultado { get; set; }
+
+        /// <summary>
+        /// Realiza la suma de Numero1 y Numero2, dejando el resultado en Resultado
+        /// </summary>
+        public void Suma()
+        {
+            Resultado = Numero1 + Numero2;
+        }
+
+        /// <summary>
+        /// Realiza la resta de Numero1 y Numero2, dejando el resultado en Resultado
+        /// </summary>
+        public void Resta()
+        {
+            Resultado = Numero1 - Numero2;
+        }
+
+        /// <summary>
+        /// Realiza la multiplicación de Numero1 y Numero2, dejando el resultado en Resultado
+        /// </summary>
+        public void Multiplicacion()
+        {
+            Resultado = Numero1 * Numero2;
+        }
+
+        /// <summary>
+        /// Realiza la división de Numero1 y Numero2, dejando el resultado en Resultado
+        /// </summary>
+        /// <exception cref="Exception">Representa el objeto Exception</exception>
+        public void Division()
+        {
+            ///////////////////////////////////////////////////////////////
+            //
+            //  Control de Excepciones mediante los bloques
+            //  try/catch/finally
+            //
+            ///////////////////////////////////////////////////////////////
+
+            //En el bloque TRY escribimos el código que pueda producir una excepción
+            //Los bloques CATCH se ejecutan cuando se produce una excepción al ejecutar las sentencias del bloque TRY
+            //El bloque FINALLY se ejecuta después de finalizar el bloque TRY o el bloque CATCH
+            try
+            {
+                Resultado = Numero1 / Numero2;
+            }
+            catch (DivideByZeroException e)
+            {
+                Resultado = 0;
+                Console.WriteLine($"Info: Error al dividir entre cero. {e.Message}");
+
+                //THROW envia la excepción al nivel superior, el blo Try\Catch del Main
+                throw;
+                throw e;
+
+                //THROW envia una nueva excepción al nivel superior, el blo Try\Catch del Main
+                throw new Exception($"Error al dividir entre cero, Número1={Numero1}  Número2={Numero2}.");
+            }
+            catch (Exception e)
+            {
+                Resultado = 0;
+                Console.WriteLine($"Info: Error al dividir. {e.Message}");
+            }
+            finally
+            {
+                Console.WriteLine("Info: Método división finalizado.");
+            }
+        }
+
+        /// <summary>
+        /// Constructo
+        /// </summary>
+        public Calculadora()
+        {
+            Numero1 = 0;
+            Numero2 = 0;
+            Resultado = 0;
+        }
+
+        /// <summary>
+        /// Constructo
+        /// </summary>
+        /// <param name="numero1">Valor para inicializar Numero1</param>
+        /// <param name="numero2">Valor para inicializar Numero2</param>
+        public Calculadora(int numero1, int numero2)
+        {
+            Numero1 = numero1;
+            Numero2 = numero2;
+            Resultado = 0;
+        }
+    }
+
 }
