@@ -3,6 +3,13 @@ Ejemplos de la formaciones .NET
 &nbsp;
 &nbsp;
 &nbsp;
+&nbsp;
+&nbsp;
+### ***INFORMACIÓN ADICIONAL***
+* [*Operadores*](https://github.com/borjacabeza/csharp/blob/main/OPERADORES.md)
+&nbsp;
+---
+&nbsp;
 ### ***Formacion.CSharp.ConsoleApp1***
 * Declaración de Variables
 * Conversión de Variables
@@ -20,6 +27,31 @@ Ejemplos de la formaciones .NET
 * Variables de tipo referencia
 * [Modificador del parámettro ***ref***](https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/ref)
 * [Modificador del parámettro ***out***](https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/out-parameter-modifier)
+&nbsp;
+---
+&nbsp;
+### ***Formacion.CSharp.ConsoleApp3***
+* Control de Excepciones
+* [Uso de ***throw***](https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/throw)
+* [***Más Información***](https://docs.microsoft.com/es-es/dotnet/csharp/fundamentals/exceptions/)
+&nbsp;
+---
+&nbsp;
+### ***Formacion.CSharp.ConsoleApp4***
+* Colecciones, ArrayList
+* Colecciones, Hastable
+* Colecciones, List
+* Colecciones, Dictonary
+* Colecciones, añadir item de tipo referencia
+* [***Más Información***](https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/concepts/collections)
+&nbsp;
+---
+&nbsp;
+### ***Formacion.CSharp.ConsoleAppLINQ***
+* Consultas Básicas con LINQ
+* [***Más Información***](https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/concepts/linq/)
+&nbsp;
+* Ejercicios del 30-Mar-2022
 &nbsp;
 ---
 &nbsp;
