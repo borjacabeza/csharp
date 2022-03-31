@@ -7,6 +7,10 @@ Ejemplos de la formaciones .NET
 &nbsp;
 ### ***INFORMACIÓN ADICIONAL***
 * [*Operadores*](https://github.com/borjacabeza/csharp/blob/main/OPERADORES.md)
+---
+* [*EntityFrameworkCore*](https://github.com/borjacabeza/csharp/blob/main/EF.md)
+---
+* [*MICROSOFT LEARN PARA .NET*](https://docs.microsoft.com/es-es/learn/dotnet/)
 &nbsp;
 ---
 &nbsp;
@@ -48,10 +52,12 @@ Ejemplos de la formaciones .NET
 ---
 &nbsp;
 ### ***Formacion.CSharp.ConsoleAppLINQ***
-* Consultas Básicas con LINQ
-* [***Más Información***](https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/concepts/linq/)
-&nbsp;
+* Consultas Básicas con LINQ y el DataList
+* Consulta de datos con ADO.NET
+* Operaciones de consulta, inserción, actualización y borrado de datos con EntityFrameworkCore
 * Ejercicios del 30-Mar-2022
+* Ejercicios del 31-Mar-2022
+* [***Más Información***](https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/concepts/linq/)
 &nbsp;
 ---
 &nbsp;
