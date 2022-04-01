@@ -1,4 +1,5 @@
 ﻿using Formacion.CSharp.ConsoleAppLINQ.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -27,6 +28,7 @@ namespace Formacion.CSharp.ConsoleAppLINQ
                 Console.WriteLine("*  3. Operaciones con EntityFramework".PadRight(55) + "*");
                 Console.WriteLine("*  4. Ejercicios 30/03/2022".PadRight(55) + "*");
                 Console.WriteLine("*  5. Ejercicios 31/03/2022".PadRight(55) + "*");
+                Console.WriteLine("*  6. Ejercicios 01/04/2022".PadRight(55) + "*");
                 Console.WriteLine("*  9. Salir".PadRight(55) + "*");
                 Console.WriteLine("*".PadRight(55) + "*");
                 Console.WriteLine("".PadRight(56, '*'));
@@ -53,6 +55,9 @@ namespace Formacion.CSharp.ConsoleAppLINQ
                         break;
                     case 5:
                         Ejercicios2();
+                        break;
+                    case 6:
+                        Ejercicios3();
                         break;
                     case 9:
                         return;
@@ -425,7 +430,9 @@ namespace Formacion.CSharp.ConsoleAppLINQ
             /////////////////////////////////////////////////////////////////////////////////
             // Listado de Clientes que residen en USA
             /////////////////////////////////////////////////////////////////////////////////
-            
+
+            // SELECT * FROM dbo.Customers WHERE Country = 'USA'
+
             var r1 = context.Customers
                 .Where(r => r.Country == "USA")
                 .ToList();
@@ -434,7 +441,9 @@ namespace Formacion.CSharp.ConsoleAppLINQ
             /////////////////////////////////////////////////////////////////////////////////
             // Listado de Proveedores (Suppliers) de Berlin
             /////////////////////////////////////////////////////////////////////////////////
-            
+
+            // SELECT * FROM dbo.Suppliers WHERE Country = 'Berlin'
+
             var r2 = context.Suppliers
                 .Where(r => r.City == "Berlin")
                 .ToList();
@@ -469,6 +478,8 @@ namespace Formacion.CSharp.ConsoleAppLINQ
             // Listado de Productos con stock mayor de cero
             /////////////////////////////////////////////////////////////////////////////////
 
+            // SELECT * FROM dbo.Products WHERE UnitsInStock > 0
+
             var r4 = context.Products
                 .Where(r => r.UnitsInStock > 0)
                 .ToList();
@@ -477,7 +488,9 @@ namespace Formacion.CSharp.ConsoleAppLINQ
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Listado de Productos con stock mayor de cero de los proveedores con identificadores 1, 3 y 5
             /////////////////////////////////////////////////////////////////////////////////////////////////
-            
+
+            // SELECT * FROM dbo.Products WHERE SupplierID IN (1, 3, 5) 
+
             int?[] suppliersIds = new int?[] { 1, 3, 5 };
 
             var r5 = context.Products
@@ -489,6 +502,8 @@ namespace Formacion.CSharp.ConsoleAppLINQ
             // Listado de Productos con precio mayor de 20 y menor 90
             /////////////////////////////////////////////////////////////////////////////////
 
+            // SELECT * FROM dbo.Products WHERE UnitPrice > 20 AND UnitPrice < 90
+
             var r6 = context.Products
                 .Where(r => r.UnitPrice > 20 && r.UnitPrice < 90)
                 .ToList();
@@ -497,7 +512,9 @@ namespace Formacion.CSharp.ConsoleAppLINQ
             /////////////////////////////////////////////////////////////////////////////////
             // Listado de Pedidos entre 01/01/1997 y 15/07/1997
             /////////////////////////////////////////////////////////////////////////////////
-            
+
+            // SELECT * dbo.Orders WHERE OrderDate >= '1997/01/01' AND OrderDate <= '1997/09/15'
+
             var r7 = context.Orders
                 .Where(r => r.OrderDate >= new DateTime(1997, 1, 1) && r.OrderDate <= new DateTime(1997, 7, 15))
                 .ToList();
@@ -506,6 +523,8 @@ namespace Formacion.CSharp.ConsoleAppLINQ
             /////////////////////////////////////////////////////////////////////////////////////////////////
             // Listado de Pedidos registrados por los empleados con identificador 1, 3, 4 y 8 en 1997
             /////////////////////////////////////////////////////////////////////////////////////////////////
+
+            // SELECT * dbo.Orders WHERE YEAR(OrderDate) = 1997 AND EmployeeID IN (1, 3, 4, 8)
 
             int?[] employeesIds2 = new int?[] { 1, 3, 4, 8 };
 
@@ -518,6 +537,8 @@ namespace Formacion.CSharp.ConsoleAppLINQ
             // Listado de Pedidos de abril de 1996
             /////////////////////////////////////////////////////////////////////////////////
 
+            // SELECT * dbo.Orders WHERE YEAR(OrderDate) = 1996 AND MONTH(OrderDate) = 4
+
             var r9 = context.Orders
                 .Where(r => r.OrderDate.Value.Year == 1996 && r.OrderDate.Value.Month == 4)
                 .ToList();
@@ -526,6 +547,8 @@ namespace Formacion.CSharp.ConsoleAppLINQ
             /////////////////////////////////////////////////////////////////////////////////
             // Listado de Pedidos del realizado los dia uno de cada mes del año 1998
             /////////////////////////////////////////////////////////////////////////////////
+
+            // SELECT * dbo.Orders WHERE YEAR(OrderDate) = 1998 AND MONTH(OrderDate) = 1
 
             var r10 = context.Orders
                 .Where(r => r.OrderDate.Value.Year == 1998 && r.OrderDate.Value.Day == 1)
@@ -542,6 +565,8 @@ namespace Formacion.CSharp.ConsoleAppLINQ
             // Listado de Clientes que no tiene fax
             /////////////////////////////////////////////////////////////////////////////////
 
+            // SELECT * FROM dbo.Customers WHERE Fax = NULL
+
             var r11 = context.Customers
                 .Where(r => r.Fax == null)
                 .ToList();
@@ -550,6 +575,8 @@ namespace Formacion.CSharp.ConsoleAppLINQ
             /////////////////////////////////////////////////////////////////////////////////
             // Listado de los 10 productos más baratos
             /////////////////////////////////////////////////////////////////////////////////
+
+            // SELECT TOP(10) * FROM dbo.Products ORDER BY UnitPrice
 
             var r12 = context.Products
                 .OrderBy(r => r.UnitPrice)
@@ -560,7 +587,9 @@ namespace Formacion.CSharp.ConsoleAppLINQ
             /////////////////////////////////////////////////////////////////////////////////
             // Listado de los 10 productos más caros con stock
             /////////////////////////////////////////////////////////////////////////////////
-            
+
+            // SELECT TOP(10) * FROM dbo.Products ORDER BY UnitPrice DESC
+
             var r13 = context.Products
                 .Where(r => r.UnitsInStock > 0)
                 .OrderByDescending(r => r.UnitPrice)
@@ -571,7 +600,9 @@ namespace Formacion.CSharp.ConsoleAppLINQ
             /////////////////////////////////////////////////////////////////////////////////
             // Listado de Cliente de UK y nombre de empresa que comienza por B
             /////////////////////////////////////////////////////////////////////////////////
-            
+
+            // SELECT * FROM dbo.Customers WHERE CompanyName LIKE 'B%' AND Country = 'Uk'
+
             var r14 = context.Customers
                 .Where(r => r.CompanyName.StartsWith("B") && r.Country == "Uk")
                 .ToList();
@@ -580,6 +611,8 @@ namespace Formacion.CSharp.ConsoleAppLINQ
             /////////////////////////////////////////////////////////////////////////////////
             // Listado de Productos de identificador de categoria 3 y 5
             /////////////////////////////////////////////////////////////////////////////////
+
+            // SELECT TOP(10) * FROM dbo.Products WHERE CategoryID IN (3, 5)
 
             var r15 = context.Products
                 .Where(r => new int?[] { 3, 5 }.Contains(r.CategoryID))
@@ -598,26 +631,264 @@ namespace Formacion.CSharp.ConsoleAppLINQ
 
             /////////////////////////////////////////////////////////////////////////////////
             // Listado de Pedidos de los clientes de Argentina
-            /////////////////////////////////////////////////////////////////////////////////
-            
+            /////////////////////////////////////////////////////////////////////////////////            
+
+            // SELECT CustomerID FROM dbo.Customers WHERE Country = 'Argentina'
+
             var argentinaIds = context.Customers
                     .Where(s => s.Country == "Argentina")
                     .Select(s => s.CustomerID)
                     .ToList();
+
+            // SELECT * FROM dbo.Orders WHERE CustomerID IN ('CACTU', 'OCEAN', 'RANCH')
 
             var r17 = context.Orders
                 .Where(r => argentinaIds.Contains(r.CustomerID))
                 .ToList();
 
 
+            // SELECT * FROM dbo.Orders WHERE CustomerID IN (SELECT CustomerID FROM dbo.Customers WHERE Country = 'Argentina')
+
             var r17a = context.Orders
-                .Where(r => 
+                .Where(r =>
                     context.Customers
                         .Where(s => s.Country == "Argentina")
                         .Select(s => s.CustomerID)
                         .ToList()
                 .Contains(r.CustomerID))
                 .ToList();
+        }
+
+        /// <summary>
+        /// Ejercicios realizados el 01/04/2022
+        /// </summary>
+        static void Ejercicios3()
+        {
+            var context = new ModelNorthwind();
+
+            /////////////////////////////////////////////////////////////////////////////////
+            // Listado de empleados mayores que su jefe (ReportsTo es id Jefe)
+            /////////////////////////////////////////////////////////////////////////////////
+
+            //  SELECT r.EmployeeID, r.FirstName, r.LastName, r.BirthDate, r.ReportsTo FROM dbo.Employees r WHERE r.BirthDate < (SELECT s.BirthDate FROM dbo.Employees s WHERE s.EmployeeID = r.ReportsTo)
+
+            var r1 = context.Employees
+                .Where(r => r.BirthDate < context.Employees.Where(s => s.EmployeeID == r.ReportsTo).Select(s => s.BirthDate).FirstOrDefault())
+                .ToList();
+
+            foreach (var item in r1) Console.WriteLine($"{item.FirstName} {item.LastName}");
+
+            /////////////////////////////////////////////////////////////////////////////////
+            // Listado de productos: Nombre del Producto, Stock, Valor del Stock
+            /////////////////////////////////////////////////////////////////////////////////
+
+            // SELECT ProductName, UnitsInStock, (r.UnitPrice * r.UnitsInStock) AS Total FROM dbo.Products
+
+            var r2 = context.Products
+                .Select(r => new { r.ProductName, r.UnitsInStock, Total = r.UnitPrice * r.UnitsInStock });
+
+            foreach (var item in r2)
+                Console.WriteLine($"{item.ProductName.PadRight(35)} {item.UnitsInStock.ToString().PadLeft(5)} unidades {item.Total.ToString().PadLeft(11)}");
+
+
+
+            /////////////////////////////////////////////////////////////////////////////////
+            // Listado de Empleados, nombre, apellidos, número de pedidos gestionado en 1997
+            /////////////////////////////////////////////////////////////////////////////////
+
+            // SELECT r.FirstName, r.LastName, (SELECT COUNT(*) FROM dbo.Orders s WHERE YEAR(s.OrderDate) = 1997 AND s.EmployeeID = r.EmployeeID) AS Orders FROM dbo.Employees r
+
+            var r3 = context.Employees
+                .Select(r => new
+                {
+                    r.FirstName,
+                    r.LastName,
+                    Orders = context.Orders
+                        .Count(s => s.EmployeeID == r.EmployeeID && s.OrderDate.Value.Year == 1997)
+                }).ToList();
+
+            foreach (var item in r3)
+            {
+                Console.Write($"{item.FirstName} {item.LastName}".PadRight(25));
+                Console.WriteLine($"{item.Orders.ToString().PadLeft(5)} pedidos");
+            }
+
+
+            /////////////////////////////////////////////////////////////////////////////////
+            // Tiempo medio en días para la preparación un pedido
+            /////////////////////////////////////////////////////////////////////////////////
+
+            // SELECT AVG(ShippedDate - OrderDate) FROM dbo.Orders
+
+            var r4a = context.Orders
+                .Where(r => r.ShippedDate != null && r.OrderDate != null)
+                .AsEnumerable()
+                .Average(r => (r.ShippedDate.Value - r.OrderDate.Value).Days);
+
+            var r4b = context.Orders
+                .Where(r => r.ShippedDate != null && r.OrderDate != null)
+                .AsEnumerable()
+                .Average(r => (r.ShippedDate - r.OrderDate).Value.Days);
+
+            var r4d = context.Orders
+                .Where(r => r.ShippedDate != null && r.OrderDate != null)
+                .AsEnumerable()
+                .Average(r => r.ShippedDate.Value.Subtract(r.OrderDate.Value).Days);
+
+            Console.WriteLine($"Tiempo medio de Preparación: {r4a.ToString("N2")}");
+
+
+
+            /********************************************
+             *  Sentecias de LINQ que utilizan INCLUDE  * 
+             ********************************************/
+
+            /////////////////////////////////////////////////////////////////////////////////
+            // Listado de Empleados, nombre, apellidos, número de pedidos gestionado en 1997
+            /////////////////////////////////////////////////////////////////////////////////
+
+            // SELECT r.FirstName, r.LastName, (SELECT COUNT(*) FROM dbo.Orders s WHERE YEAR(s.OrderDate) = 1997 AND s.EmployeeID = r.EmployeeID) AS Orders FROM dbo.Employees r
+
+            var i1 = context.Employees
+                .Include(r => r.Orders)
+                .Select(r => new { r.FirstName, r.LastName, r.Orders.Count })
+                .ToList();
+
+
+            /////////////////////////////////////////////////////////////////////////////////
+            // Productos de la categoría Condiments y Seafood
+            /////////////////////////////////////////////////////////////////////////////////
+
+            // SELECT * FROM dbo.Products WHERE CategoryID IN (SELECT CategoryID FROM dbo.Categories WHERE CategoryName IN('Condiments', 'Seafood'))
+
+            var i2 = context.Products
+                .Include(r => r.Category)
+                .Where(r => new string[] { "Condiments", "Seafood" }.Contains(r.Category.CategoryName))
+                .ToList();
+
+
+            /////////////////////////////////////////////////////////////////////////////////
+            // Listado de pedidos de los clientes de USA
+            /////////////////////////////////////////////////////////////////////////////////
+
+            // SELECT * FROM dbo.Orders WHERE CustomerID IN (SELECT CustomerID FROM dbo.Customers WHERE Country = 'USA')
+
+            var i3 = context.Orders
+                .Include(r => r.Customer)
+                .Where(r => r.Customer.Country == "USA")
+                .ToList();
+
+
+
+            /**********************************************
+             *  Sentecias de LINQ que utilizan INTERSECT  * 
+             **********************************************/
+
+            /////////////////////////////////////////////////////////////////////////////////
+            // Listado de IDs Clientes que ha pedido el producto 57 y el producto 72 en el año 1997
+            /////////////////////////////////////////////////////////////////////////////////
+
+            var c1 = context.Order_Details
+                .Include(r => r.Order)
+                .Where(r => r.ProductID == 57)
+                .Select(r => r.Order.CustomerID)
+                .ToList();
+
+            var c2 = context.Order_Details
+                .Include(r => r.Order)
+                .Where(r => r.ProductID == 72 && r.Order.OrderDate.Value.Year == 1997)
+                .Select(r => r.Order.CustomerID)
+                .ToList();
+
+            var customers = c1.Intersect(c2);
+
+            foreach (var id in customers) Console.WriteLine($"{id}");
+            Console.ReadKey();
+
+            /////////////////////////////////////////////////////////////////////////////////
+
+            // SELECT CustomerID FROM dbo.Orders WHERE OrderID IN (SELECT OrderID FROM [Order Details] WHERE ProductID = 57) INTERSECT SELECT CustomerID FROM dbo.Orders WHERE OrderID IN (SELECT OrderID FROM [Order Details] WHERE ProductID = 72 AND YEAR(OrderDate) = 1997)
+
+            customers = context.Order_Details
+                .Include(r => r.Order)
+                .Where(r => r.ProductID == 57)
+                .Select(r => r.Order.CustomerID)
+                .ToList()
+                .Intersect(context.Order_Details
+                    .Include(s => s.Order)
+                    .Where(s => s.ProductID == 72 && s.Order.OrderDate.Value.Year == 1997)
+                    .Select(s => s.Order.CustomerID)
+                    .ToList());
+
+            foreach (var id in customers) Console.Write($"{id}  ");
+            Console.WriteLine(Environment.NewLine);
+            Console.ReadKey();
+
+
+            /////////////////////////////////////////////////////////////////////////////////
+            // Listado de Clientes que ha pedido el producto 57 y el producto 72 en el año 1997, id y nombre de empresa
+            /////////////////////////////////////////////////////////////////////////////////
+
+            var customers2 = context.Order_Details
+                .Include(r => r.Order)
+                .Include(r => r.Order.Customer)
+                .Where(r => r.ProductID == 57)
+                .Select(r => new { r.Order.CustomerID, r.Order.Customer.CompanyName })
+                .ToList()
+                .Intersect(context.Order_Details
+                    .Include(s => s.Order)
+                    .Include(s => s.Order.Customer)
+                    .Where(s => s.ProductID == 72 && s.Order.OrderDate.Value.Year == 1997)
+                    .Select(s => new { s.Order.CustomerID, s.Order.Customer.CompanyName })
+                    .ToList());
+
+            foreach (var id in customers2) Console.WriteLine($"{id.CustomerID} {id.CompanyName}");
+
+
+
+            /********************************************
+             *  Sentecias de LINQ que utilizan GROUPBY  * 
+             ********************************************/
+
+            /////////////////////////////////////////////////////////////////////////////////
+            // Listado de clientes agrupados por país
+            /////////////////////////////////////////////////////////////////////////////////
+
+            // SELECT Country, COUNT(*) FROM dbo.Customers GROUP BY Country
+
+            var customers3 = context.Customers
+                .AsEnumerable()
+                .GroupBy(g => g.Country)
+                .Select(g => g)
+                .ToList();
+
+            foreach (var group in customers3)
+            {
+                Console.WriteLine($"==========================================");
+                Console.WriteLine($" Clientes de {group.Key}: {group.Count()}");
+                Console.WriteLine($"==========================================");
+
+                foreach (var customer in group) Console.WriteLine($"{customer.CustomerID} {customer.CompanyName}");
+            }
+
+
+            /////////////////////////////////////////////////////////////////////////////////
+            // Listado de pedidos con su importe total
+            /////////////////////////////////////////////////////////////////////////////////
+
+            // SELECT OrderID, SUM(UnitPrice * Quantity) FROM dbo.[Order Details] GROUP BY OrderID
+
+            var orders = context.Order_Details
+                .AsEnumerable()
+                .GroupBy(r => r.OrderID)
+                .Select(r => new { r.Key, TotalPrice = r.Sum(s => s.UnitPrice * s.Quantity) })
+                .ToList();
+
+            foreach (var group in orders)
+            {
+                Console.Write($" Pedido Número: {group.Key.ToString().PadLeft(5)}");
+                Console.WriteLine($" Importe: {group.TotalPrice.ToString().PadLeft(9)}");
+            }
         }
     }
 }

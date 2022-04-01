@@ -8,7 +8,7 @@ Ejemplos de la formaciones .NET
 ### ***INFORMACIÓN ADICIONAL***
 * [*Operadores*](https://github.com/borjacabeza/csharp/blob/main/OPERADORES.md)
 ---
-* [*EntityFrameworkCore*](https://github.com/borjacabeza/csharp/blob/main/EF.md)
+* [*EntityFrameworkCore, instalación de dependencias y generación del modelo de datos*](https://github.com/borjacabeza/csharp/blob/main/EF.md)
 ---
 * [*MICROSOFT LEARN PARA .NET*](https://docs.microsoft.com/es-es/learn/dotnet/)
 &nbsp;
@@ -57,6 +57,7 @@ Ejemplos de la formaciones .NET
 * Operaciones de consulta, inserción, actualización y borrado de datos con EntityFrameworkCore
 * Ejercicios del 30-Mar-2022
 * Ejercicios del 31-Mar-2022
+* Ejercicios del 01-Abr-2022
 * [***Más Información***](https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/concepts/linq/)
 &nbsp;
 ---
