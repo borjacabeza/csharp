@@ -13,13 +13,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Formacion.CSharp.ConsoleApp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 Organizing Data into Collections", "04 Organizing Data into Collections", "{A29A5EF5-0C64-4C97-80D4-B160699F1350}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formacion.CSharp.ConsoleAppLINQ", "Formacion.CSharp.ConsoleAppLINQ\Formacion.CSharp.ConsoleAppLINQ.csproj", "{46B01ADD-0A28-4FE4-814E-C7D4B2483BEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Formacion.CSharp.ConsoleAppLINQ", "Formacion.CSharp.ConsoleAppLINQ\Formacion.CSharp.ConsoleAppLINQ.csproj", "{46B01ADD-0A28-4FE4-814E-C7D4B2483BEC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Handling and Exceptions", "03 Handling and Exceptions", "{4D04EDE0-2F7F-4775-8640-09CDEFFFA0B7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Formación.CSharp.ConsoleApp3", "Formacion.CSharp.ConsoleApp3\Formación.CSharp.ConsoleApp3.csproj", "{35D22D22-7FC9-4A9C-9347-794CA8652B0F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Formacion.CSharp.ConsoleApp4", "Formacion.CSharp.ConsoleApp4\Formacion.CSharp.ConsoleApp4.csproj", "{EC685038-9283-4885-86DE-D9B0E84E8E04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 Creating a Class Hierarchy by Using Inheritance", "05 Creating a Class Hierarchy by Using Inheritance", "{A899F28D-896C-4B3E-8427-51D8C60821FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formacion.CSharp.ConsoleApp5", "Formacion.CSharp.ConsoleApp5\Formacion.CSharp.ConsoleApp5.csproj", "{0304D6F8-DA3F-4ABF-9E5C-3ECE1C3F5611}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +51,10 @@ Global
 		{EC685038-9283-4885-86DE-D9B0E84E8E04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC685038-9283-4885-86DE-D9B0E84E8E04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC685038-9283-4885-86DE-D9B0E84E8E04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0304D6F8-DA3F-4ABF-9E5C-3ECE1C3F5611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0304D6F8-DA3F-4ABF-9E5C-3ECE1C3F5611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0304D6F8-DA3F-4ABF-9E5C-3ECE1C3F5611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0304D6F8-DA3F-4ABF-9E5C-3ECE1C3F5611}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +65,7 @@ Global
 		{46B01ADD-0A28-4FE4-814E-C7D4B2483BEC} = {A29A5EF5-0C64-4C97-80D4-B160699F1350}
 		{35D22D22-7FC9-4A9C-9347-794CA8652B0F} = {4D04EDE0-2F7F-4775-8640-09CDEFFFA0B7}
 		{EC685038-9283-4885-86DE-D9B0E84E8E04} = {A29A5EF5-0C64-4C97-80D4-B160699F1350}
+		{0304D6F8-DA3F-4ABF-9E5C-3ECE1C3F5611} = {A899F28D-896C-4B3E-8427-51D8C60821FF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6D83FE47-CF05-48FB-BF7F-AF46B9A1A349}

@@ -6,6 +6,10 @@ namespace Formacion.CSharp.ConsolaApp1
 {
     class Program
     {
+        /// <summary>
+        /// Inicio del programa
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             while (true)

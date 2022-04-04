@@ -62,3 +62,10 @@ Ejemplos de la formaciones .NET
 &nbsp;
 ---
 &nbsp;
+### ***Formacion.CSharp.ConsoleApp5***
+* Herencia
+* Poliformismo
+* Clases Genéricas
+&nbsp;
+---
+&nbsp;
