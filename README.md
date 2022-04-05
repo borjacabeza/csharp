@@ -69,3 +69,14 @@ Ejemplos de la formaciones .NET
 &nbsp;
 ---
 &nbsp;
+### ***Formacion.CSharp.ConsoleApp6***
+* Ejemplo de una llamada GET
+* Ejemplo de una llamada POST
+* Ejemplo de una llamada PUT
+* Ejemplo de una llamada DELETE
+* Ejemplo utilización de método abreviados
+* Ejemplo Eco, como preparar Headers y Body, y procesar la respuesta
+* [***Más Información***](https://docs.microsoft.com/es-es/dotnet/api/system.net.http.httpclient?view=net-5.0)
+&nbsp;
+---
+&nbsp;

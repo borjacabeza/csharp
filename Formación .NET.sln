@@ -23,7 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Formacion.CSharp.ConsoleApp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 Creating a Class Hierarchy by Using Inheritance", "05 Creating a Class Hierarchy by Using Inheritance", "{A899F28D-896C-4B3E-8427-51D8C60821FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formacion.CSharp.ConsoleApp5", "Formacion.CSharp.ConsoleApp5\Formacion.CSharp.ConsoleApp5.csproj", "{0304D6F8-DA3F-4ABF-9E5C-3ECE1C3F5611}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Formacion.CSharp.ConsoleApp5", "Formacion.CSharp.ConsoleApp5\Formacion.CSharp.ConsoleApp5.csproj", "{0304D6F8-DA3F-4ABF-9E5C-3ECE1C3F5611}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 Accessing Remote Data", "06 Accessing Remote Data", "{3570383B-62C6-4086-AEB8-253DCB5E86DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formacion.CSharp.ConsoleApp6", "Formacion.CSharp.ConsoleApp6\Formacion.CSharp.ConsoleApp6.csproj", "{7147FF00-2F6A-4616-8215-6F6FB064FE9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +59,10 @@ Global
 		{0304D6F8-DA3F-4ABF-9E5C-3ECE1C3F5611}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0304D6F8-DA3F-4ABF-9E5C-3ECE1C3F5611}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0304D6F8-DA3F-4ABF-9E5C-3ECE1C3F5611}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7147FF00-2F6A-4616-8215-6F6FB064FE9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7147FF00-2F6A-4616-8215-6F6FB064FE9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7147FF00-2F6A-4616-8215-6F6FB064FE9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7147FF00-2F6A-4616-8215-6F6FB064FE9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +74,7 @@ Global
 		{35D22D22-7FC9-4A9C-9347-794CA8652B0F} = {4D04EDE0-2F7F-4775-8640-09CDEFFFA0B7}
 		{EC685038-9283-4885-86DE-D9B0E84E8E04} = {A29A5EF5-0C64-4C97-80D4-B160699F1350}
 		{0304D6F8-DA3F-4ABF-9E5C-3ECE1C3F5611} = {A899F28D-896C-4B3E-8427-51D8C60821FF}
+		{7147FF00-2F6A-4616-8215-6F6FB064FE9B} = {3570383B-62C6-4086-AEB8-253DCB5E86DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6D83FE47-CF05-48FB-BF7F-AF46B9A1A349}
