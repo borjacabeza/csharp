@@ -80,3 +80,29 @@ Ejemplos de la formaciones .NET
 &nbsp;
 ---
 &nbsp;
+### ***Formacion.CSharp.ConsoleApp7***
+* Creación de Tareas
+* Ejecutar métodos en paralelo
+* Ejecutar For en paralelo
+* Ejecutar ForEach en paralelo
+* Ejecutar Linq en parelelo
+* Uso de async/await
+* [***Más Información***](https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/concepts/async/)
+&nbsp;
+---
+&nbsp;
+### ***Formacion.CSharp.ConsoleApp8***
+* Trabajar con delegate
+* [***Más Información***](https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/delegates/)
+* Trabajar con eventos
+* [***Más Información***](https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/concepts/async/)
+&nbsp;
+---
+&nbsp;
+### ***Formacion.CSharp.ConsoleApp9***
+* Trabajando con System.Reflection
+* Trabajando con CodeDOM
+* Trabajando con ExpandoObject
+&nbsp;
+---
+&nbsp;
